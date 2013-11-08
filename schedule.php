@@ -2,13 +2,21 @@
 require_once 'header.php';
 require_once '/utilities/db_class.php';
 
+$all_shows = get_shows_from_db();
+echo make_all_shows_html($all_shows);
 ?>
 
 <?php
 
 function get_shows_from_db() {
-  //this is where I'll put in the "get this from the db" code.
-  //Look at DoQ for example
+  $sab_basic_db = new Database();
+  $sab_basic_db->make_sab_basics_database_connection();
+  $sql = 
+    "SELECT * FROM 'show'
+    WHERE show_time >= now()
+    ORDER BY show_time ASC;";
+  $all_shows = $sab_basic_db->query($sql);
+  return $all_shows;
 }
 
 /*

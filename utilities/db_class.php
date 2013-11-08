@@ -14,7 +14,7 @@ Class Database{
 	private function result_set_to_array($result_set){
     if(is_object($result_set)){
 	    for ($new_array = array(); $tmp = $result_set->fetch_array(MYSQL_ASSOC);  ) $new_array[] = $tmp;
-	  	  return $new_array;
+  	  return $new_array;
 		}
   }
 
