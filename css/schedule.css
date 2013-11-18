@@ -1,0 +1,25 @@
+.show_listing {
+  border-style: solid;
+  margin: 20px 0px;
+}
+
+.show_title {
+  font-size: 150%;
+  opacity: .9;
+  display: block;
+  margin: 10px 10px;
+}
+
+.show_details {
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+}
+
+.static {
+  text-decoration: underline;
+}
+
+.show_desc {
+  font-style: emphatic;
+  margin: 5px 10px;
+}

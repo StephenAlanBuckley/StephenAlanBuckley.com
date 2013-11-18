@@ -1,40 +1,4 @@
-// Create the canvas
-var canvas = document.createElement("canvas");
-var ctx = canvas.getContext("2d");
-canvas.width = 512;
-canvas.height = 480;
-document.body.appendChild(canvas);
-
 var world = new Object();
-
-//base class
-function GamePiece(){
-	this.x = 0;
-	this.y = 0;
-	this.ready = true;
-	this.image = new Image();
-	this.collisionType = 'background';
-	this.xMove = function(distance) {
-		this.x += distance;
-	}
-	this.yMove = function(distance) {
-		this.y += distance;
-	}
-}
-
-GamePiece.prototype.add_source = function(source) {
-	this.image.src = source;
-}
-
-function Character(){
-	GamePiece.call(this);
-}
-
-Character.prototype = new GamePiece();
-Character.prototype.constructor = GamePiece;
-Character.prototype.speed = 0;
-Character.prototype.update = function(modifier){};
-
 
 var BackGround = new GamePiece();
 BackGround.add_source("images/background.png");
@@ -45,23 +9,7 @@ Hero.speed = 256;
 
 world.player = Hero;
 
-function Monster(){
-	Character.call(this);
-}
-
-Monster.prototype = new Character();
-Monster.prototype.constructor = Character;
-Monster.prototype.sensitivity = 100;
-Monster.prototype.update = function(modifier) {
-	if (Math.abs(world.player.x - this.x) < this.sensitivity && Math.abs(world.player.y - this.y) < this.sensitivity) {
-		var xMod = -(world.player.x - this.x)/Math.abs(world.player.x - this.x);
-		var yMod = -(world.player.y - this.y)/Math.abs(world.player.y - this.y);
-
-		this.xMove(this.speed * xMod * modifier);
-		this.yMove(this.speed * yMod * modifier);
-	}
-}
-
+//Create the logic for placing monsters
 var monsters = [];
 world.monsters = monsters;
 
@@ -78,36 +26,32 @@ for (var i = 10; i >= 0; i--) {
 
 var monstersCaught = 0;
 
-// Handle keyboard controls
-var keysDown = {};
-
-addEventListener("keydown", function (e) {
-	keysDown[e.keyCode] = true;
-}, false);
-
-addEventListener("keyup", function (e) {
-	delete keysDown[e.keyCode];
-}, false);
-
-
 Hero.x = canvas.width / 2;
 Hero.y = canvas.height / 2;
 
+var offset_x = 0;
+var offset_y = 0;
+
 // Update game objects
 var update = function (modifier) {
+  player_change = Hero.speed * modifier;
 	if (32 in keysDown) { // Player pressing spacebar
 	}
 	if (38 in keysDown) { // Player holding up
-		Hero.y -= Hero.speed * modifier;
+		Hero.y -= player_change;
+    offset_y -= player_change;
 	}
 	if (40 in keysDown) { // Player holding down
-		Hero.y += Hero.speed * modifier;
+		Hero.y += player_change;
+    offset_y += player_change;
 	}
 	if (37 in keysDown) { // Player holding left
-		Hero.x -= Hero.speed * modifier;
+		Hero.x -= player_change;
+    offset_x -= player_change;
 	}
 	if (39 in keysDown) { // Player holding right
-		Hero.x += Hero.speed * modifier;
+		Hero.x += player_change;
+    offset_x += player_change;
 	}
 
 	if (Hero.x >= (canvas.width - Hero.image.width)) {
@@ -123,14 +67,14 @@ var update = function (modifier) {
 	}
 
 	// Are they touching?
-	if (monsters.length-1 >=0){
+	if (monsters.length-1 >= 0){
 		for (var i = monsters.length - 1; i >= 0; i--) {
-			if (
+			if ( //The monster and the hero are intersecting
 			Hero.x <= (monsters[i].x + monsters[i].image.width)
 			&& monsters[i].x <= (Hero.x + Hero.image.width)
 			&& Hero.y <= (monsters[i].y + monsters[i].image.height)
 			&& monsters[i].y <= (Hero.y + Hero.image.height)
-		) {
+		) { //Remove the monsters from the queue, increase the monster caught, and continue
 			monsters.splice(i, 1);
 			++monstersCaught;
 			continue;
@@ -155,17 +99,20 @@ var update = function (modifier) {
 };
 
 // Draw everything
+//ctx is the canvas context object
 var render = function () {
+  offset_x = Hero.x - (canvas.width/2);
+  offset_y = Hero.y - (canvas.height/2);
 	if (BackGround.ready) {
-		ctx.drawImage(BackGround.image, 0, 0);
+		ctx.drawImage(BackGround.image, offset_x, offset_y, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
 	}
 
 	if (Hero.ready) {
-		ctx.drawImage(Hero.image, Hero.x, Hero.y);
+		ctx.drawImage(Hero.image, Hero.x - offset_x, Hero.y - offset_y);
 	}
 	for (var i = monsters.length - 1; i >= 0; i--) {	
 		if (monsters[i].ready) {
-			ctx.drawImage(monsters[i].image, monsters[i].x, monsters[i].y);
+			ctx.drawImage(monsters[i].image, monsters[i].x - offset_x, monsters[i].y - offset_y);
 		}
 	};
 
@@ -174,7 +121,7 @@ var render = function () {
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+	ctx.fillText("offset_x: " + offset_x, 32, 32);
 };
 
 // The main game loop
