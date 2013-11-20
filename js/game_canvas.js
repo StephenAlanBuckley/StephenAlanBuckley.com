@@ -9,14 +9,3 @@ canvas.setAttribute("id", "game_canvas");
 var frame = document.getElementById('game_frame');
 frame.appendChild(canvas);
 
-//Keyboard controls
-var keysDown = {};
-
-addEventListener("keydown", function (e) {
-  e.preventDefault();
-	keysDown[e.keyCode] = true;
-}, false);
-
-addEventListener("keyup", function (e) {
-	delete keysDown[e.keyCode];
-}, false);
