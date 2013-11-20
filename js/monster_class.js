@@ -5,6 +5,7 @@ function Monster(){
 Monster.prototype = new Character();
 Monster.prototype.constructor = Character;
 Monster.prototype.sensitivity = 100;
+//The game loop will check to see if monsters were destroyed
 
 //This is the basic monster so it just avoids the hero if he comes within sensitivity range
 Monster.prototype.update = function(modifier) {
@@ -15,4 +16,11 @@ Monster.prototype.update = function(modifier) {
 		this.x_move(this.speed * x_mod * modifier);
 		this.y_move(this.speed * y_mod * modifier);
 	}
+}
+
+Monster.prototype.collide_with = function(piece) {
+  if (piece.collision_type.indexOf("player") !== -1) {
+    this.remove = true;
+    alert("Bah, ya got me!");
+  }
 }

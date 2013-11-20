@@ -40,7 +40,7 @@ var main = function () {
 	var now = Date.now();
 	var delta = now - then;
 
-	update(delta / 1000);
+	update(delta / 1000, hero, monsters, world);
   main_camera = new Camera();
   main_camera.draw_frame(ctx, background, hero, monsters);
 

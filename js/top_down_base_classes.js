@@ -7,6 +7,7 @@ function Game_Piece(){
 	this.ready = true;
 	this.image = new Image();
 	this.collision_type = 'background';
+  this.remove = false;
 	this.x_move = function(distance) {
 		this.x += distance;
 	}
@@ -17,6 +18,10 @@ function Game_Piece(){
 Game_Piece.prototype.add_source = function(source) {
   var root = "http://www.stephenalanbuckley.com/";
 	this.image.src = root + source;
+}
+Game_Piece.prototype.collide_with = function(other_piece) {
+  //This is a placeholder method- actual implementation should be handled
+  //by subclasses
 }
 
 //The Character class extends the Game_Piece object for PCs and NPCs
@@ -59,9 +64,9 @@ function Camera() {
 	  if (focus.ready) {
 	  	ctx.drawImage(focus.image, focus.x - offset_x, focus.y - offset_y);
 	  }
-	  for (var i = monsters.length - 1; i >= 0; i--) {	
-	  	if (monsters[i].ready) {
-	  		ctx.drawImage(monsters[i].image, monsters[i].x - offset_x, monsters[i].y - offset_y);
+	  for (var i = game_objects.length - 1; i >= 0; i--) {	
+	  	if (game_objects[i].ready) {
+	  		ctx.drawImage(game_objects[i].image, game_objects[i].x - offset_x, game_objects[i].y - offset_y);
 	  	}
 	  };
 
