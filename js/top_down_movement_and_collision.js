@@ -66,6 +66,7 @@ var update = function(modifier, player, game_pieces, world) {
     game_pieces.splice(index, 1);
   }
 
+  console.log("-------------------------Starting Over ---------------------------");
   if (game_pieces.length-1 >=0) {
     var spatial_hashes = {}; //We create an object so we can make an associative array
     //Make the buckets for spatial hashing!
@@ -77,13 +78,13 @@ var update = function(modifier, player, game_pieces, world) {
     add_piece_to_spatial_hash(player, spatial_hashes);
 
     for (var key in spatial_hashes) {
-      if (spatial_hashes[key].length-1 > 1) { //we want to make sure there are at least 2 objects to collide
-         for (var i = spatial_hashes[key].length - 1; i >= 0; i--) {
-           for (var j = spatial_hashes[key].length - 1; j >= 0; j--) {
+      if (spatial_hashes[key].collidables.length > 1) { //we want to make sure there are at least 2 objects to collide
+         for (var i = spatial_hashes[key].collidables.length - 1; i >= 0; i--) {
+           for (var j = spatial_hashes[key].collidables.length - 1; j >= 0; j--) {
              if (i !== j) {
-                if (detect_collision(spatial_hashes[key][i], spatial_hashes[key][j])) {
-                  spatial_hashes[key][i].collide_with(spatial_hashes[key][j]);
-                  spatial_hashes[key][j].collide_with(spatial_hashes[key][i]);
+                if (detect_collision(spatial_hashes[key].collidables[i], spatial_hashes[key].collidables[j])) {
+                  spatial_hashes[key].collidables[i].collide_with(spatial_hashes[key].collidables[j]);
+                  spatial_hashes[key].collidables[j].collide_with(spatial_hashes[key].collidables[i]);
                 }
              }
            }
@@ -96,7 +97,7 @@ var update = function(modifier, player, game_pieces, world) {
 
 		if (monsters[i].x >= (world.width - monsters[i].image.width)) {
 			monsters[i].x = (world.width - monsters[i].image.width-1);
-		} else if (monsters[i].x < 0) {
+		} else if (monsters[i].x <= 0) {
 			monsters[i].x = 1;
 		}
 
@@ -142,21 +143,23 @@ var detect_collision = function(piece_one, piece_two) {
 
 var make_spatial_hashes = function(piece) {
   var corner_hashes = [];
-  corner_hashes.push(Math.floor(piece.x/100) + "x" + Math.floor(piece.y/100));
-  corner_hashes.push(Math.floor((piece.x + piece.width)/100) + "x" + Math.floor(piece.y/100));
-  corner_hashes.push(Math.floor((piece.x + piece.width)/100) + "x" + Math.floor((piece.y + piece.height)/100));
-  corner_hashes.push(Math.floor(piece.x/100) + "x" + Math.floor((piece.y + piece.height)/100));
+  corner_hashes.push(Math.floor(piece.x/100.0) + "x" + Math.floor(piece.y/100.0));
+  corner_hashes.push(Math.floor((piece.x + piece.image.width)/100.0) + "x" + Math.floor(piece.y/100.0));
+  corner_hashes.push(Math.floor((piece.x + piece.image.width)/100.0) + "x" + Math.floor((piece.y + piece.image.height)/100.0));
+  corner_hashes.push(Math.floor(piece.x/100.0) + "x" + Math.floor((piece.y + piece.image.height)/100.0));
   return corner_hashes;
 }
 
 var add_piece_to_spatial_hash = function(piece, spatial_hashes) {
   var hash_strings = make_spatial_hashes(piece);
   //I'm a bit worried that this whole following if statment won't work at all
-  for (hash_string in hash_strings) {
-    if (!spatial_hashes.hasOwnProperty[hash_string]) {
+  for (var i = hash_strings.length - 1; i >= 0; i--) {
+    var hash_string = hash_strings[i];
+    if (!(hash_string in spatial_hashes)) {
+      console.log("needed a new bucket for " + hash_string + "!!");
       spatial_hashes[hash_string] = new Hash_Bucket();
-      spatial_hashes[hash_string].x = Math.floor(piece.x/100);
-      spatial_hashes[hash_string].y = Math.floor(piece.y/100);
+      spatial_hashes[hash_string].x = Math.floor(piece.x/100.0);
+      spatial_hashes[hash_string].y = Math.floor(piece.y/100.0);
     }
     spatial_hashes[hash_string].collidables.push(piece);
   }

@@ -19,7 +19,7 @@ Game_Piece.prototype.add_source = function(source) {
   var root = "http://www.stephenalanbuckley.com/";
 	this.image.src = root + source;
 }
-Game_Piece.prototype.collide_with = function(other_piece) {
+Game_Piece.prototype.collide_with = function(piece) {
   //This is a placeholder method- actual implementation should be handled
   //by subclasses
 }
