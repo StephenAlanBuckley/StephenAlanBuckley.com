@@ -1,6 +1,6 @@
 .panel {
   display: inline-block;
-  width: 10%;
+  width: 15%;
   font-size: 200%;
 }
 
@@ -12,7 +12,7 @@
  * 84 x 80 
  */
 #portrait {
-  width: 50%;
+  width: 40%;
 }
 
 #right-panel {

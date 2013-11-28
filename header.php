@@ -71,7 +71,6 @@ function crazy_subtitle() {
     "bursting at the seams with tasteless rice",
     "invented chalk and encourages child graffitti",
     "master spellor",
-    "\<a href=\"horriblevirus.com\"\>Awesome Hacker\</a\>",
     "first edition!",
     "doesn't understand how bears didn't become the dominant species",
     "afraid of horses",

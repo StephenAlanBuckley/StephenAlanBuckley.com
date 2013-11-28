@@ -4,7 +4,7 @@
 function Game_Piece(){
 	this.x = 0;
 	this.y = 0;
-	this.ready = true;
+	this.ready = false;
 	this.image = new Image();
 	this.collision_type = 'background';
   this.remove = false;
@@ -17,6 +17,10 @@ function Game_Piece(){
 }
 Game_Piece.prototype.add_source = function(source) {
   var root = "http://www.stephenalanbuckley.com/";
+  //we make the onload function set the ready to true
+  this.image.onload = function() {
+    this.ready = true;
+  }
 	this.image.src = root + source;
 }
 Game_Piece.prototype.collide_with = function(piece) {

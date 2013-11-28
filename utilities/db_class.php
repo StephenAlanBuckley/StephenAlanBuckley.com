@@ -18,12 +18,20 @@ Class Database{
 		}
   }
 
-	public function make_connection($server, $user, $pass, $db){
-		$this->connection = new mysqli($server, $user, $pass, $db);
+	public function make_connection(){
+		$this->connection = new mysqli(
+      $this.server_ip, 
+      $this.username, 
+      $this.password, 
+      $this.db_name);
 	}
 
 	public function make_sab_basics_database_connection(){
-		$this->connection = new mysqli('205.178.146.105', 'sabuckley', 'SBuck1ey', 'sab_basics');
+    $this.server_ip = '205.178.146.105';
+    $this.username = 'sabuckley';
+    $this.password = 'SBuck1ey';
+    $this.db_name = 'sab_basics';
+    $this->make_connection();
 	}
 }
 
