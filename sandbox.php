@@ -2,7 +2,7 @@
 require_once 'header.php';
 ?>
 
-<script src="js/sandbox.js"></script>
+<script src="js/reddit_user_data.js"></script>
 
 
 <?

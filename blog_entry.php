@@ -4,19 +4,19 @@ require_once 'header.php';
 require_once 'utilities/db_class.php';
 
 if ($_POST['add_blog_entry']) {
-  $title = '"' . $_POST['db_blog_title'] . '"';
-  $body = '"' . $_POST['db_blog_body'] . '"';
-  $tags = '"' . $_POST['db_blog_tags'] . '"';
+  $title = $_POST['db_blog_title'];
+  $body =  $_POST['db_blog_body'];
+  $tags =  $_POST['db_blog_tags'];
 
   $entry_sql =
     "INSERT INTO blog(blog_title, blog_content, blog_tags)
-    VALUES($title, $body, $tags);";
-
-  print_r($entry_sql);
+    VALUES('$title', '$body', '$tags');";
 
   $db = new Database;
   $db->make_sab_basics_database_connection();
   $db->query($entry_sql);
+
+  print_r("<div id='blog_sql'>" . $entry_sql . "</div>");
 }
 ?>
 

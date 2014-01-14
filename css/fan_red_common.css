@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Fipps;
+  src: url("http://stephenalanbuckley.com/fonts/Fipps-Regular.otf") format("opentype")
+}
+
+.fan_red_banner {
+  font-family: Fipps;
+  text-align: center;
+  font-size: 250%;
+  color: red;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.fan_red_text {
+ font-family: Fipps;
+ font-size: 125%;
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+
+.fan_red_button {
+  font-family: Fipps;
+  font-size: 150%;
+  background-color: red;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+

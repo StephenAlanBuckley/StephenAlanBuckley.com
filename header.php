@@ -1,6 +1,13 @@
 <?php
+session_start();
 
 global $css_paths, $js_paths, $page_title;
+
+if (!empty($js_paths)) {
+  $js_paths .= ",/js/account_menu.js";
+} else {
+  $js_paths = "/js/account_menu.js";
+}
 
 $styles_html = '';
 if (!empty($css_paths)) {
@@ -12,29 +19,20 @@ if (!empty($css_paths)) {
 	}
 }
 
-$js_html = '';
-if (!empty($js_paths)) {
-	$include_js_paths = explode(',', $js_paths);
-	if(isset($include_js_paths)){
-		foreach($include_js_paths as $inclusion){
-			$js_html .= "<script src='". $inclusion . "'></script>";
-		}
-	}
-}
-
 ?>
 
+<link rel="icon" type="image/png" href="/images/favicon.ico">
 <head>
   <title><?=$page_title?></title>
   <!--Require in order of most to least general-->
   <!--Most General to Most Specific-->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<script src="js/jquery.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="/js/jquery.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/account_menu.css">
   <link rel="stylesheet" href="/css/sticky_footer.css">
 	<?php echo $styles_html?>
-	<?php echo $js_html?>
 	<title>Stephen Alan Buckley</title>
 	<!DOCTYPE html>
 </head>
@@ -44,9 +42,72 @@ if (!empty($js_paths)) {
       <h1><a href="/">Stephen Alan Buckley</a></h1>
       <h2><?=crazy_subtitle()?></h2>
     </div>
+    <div class="account settings" id="account_group">
+      <button class="btn btn-primary" id="login_modal_button" data-toggle="modal" data-target="#login_modal">login</button>
+      <button class="btn btn-primary" id="register_modal_button" data-toggle="modal" data-target="#register_modal">register</button>
+      <button class="btn btn-primary" id="username_button" data-toggle="modal" hidden="true">Dummy</button>
+      <button class="btn btn-primary" id="logout_button" data-toggle="modal" hidden="true">Log Out</button>
+    </div>
   </header>
 <div id="wrap" class="container">
 
+<!-- Modal -->
+<div class="modal fade" id="login_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Logging In</h4>
+      </div>
+      
+      <div class="modal-body">
+        <p>Heeeeey! There you are! My main hominem!</p>
+        <p>I knew you'd be back. That's why I made this text which is tailored for your return.</p>
+        <p>Anyway, enough chitting and chatting, let's get you logged in, huh? Okay champ!</p>
+        <input id="login_username_text" name="username" placeholder="username" type="text">
+        <input id="login_password_text" name="password" placeholder="password" type="password">
+        <p id="login_status"></p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="login_ajax">Log The Freak In</button>
+      </div>
+    
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="register_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Makin' a New Account, Huh?</h4>
+      </div>
+      
+      <div class="modal-body">
+        <p>Making yourself a new account 's pretty friggin' cool. I hope you'll like the stuff on my site because, you know, I made it! I think it's good stuff.</p>
+        <p>But there's only one way for you to find out how good you think the stuff is.</p>
+        <input id="register_username_text" name="username" placeholder="username" type="text">
+        <input id="register_password_text" name="password" placeholder="password" type="password">
+        <input id="register_check_text" name="check" placeholder="same password again!" type="password">
+        <input id="register_email_text" name="email" placeholder="email (optional)" type="text">
+        <p id="register_status"></p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="register_ajax">Register</button>
+      </div>
+    
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <?php
 
