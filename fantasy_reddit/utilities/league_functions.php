@@ -132,7 +132,7 @@ function get_league_info($league_id) {
   $league_info = $db->query($league_info_sql);
 
   $error = $db->get_error();
-  if (!empty($error) {
+  if (!empty($error)) {
     $db->end_connection();
     return result_set("false", $error);
   }
