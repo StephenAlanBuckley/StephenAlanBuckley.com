@@ -1,10 +1,8 @@
 .panel {
-  display: inline-block;
-  width: 15%;
   font-size: 200%;
 }
 
-.panel li {
+.panel a {
   margin 20px 0px;
 }
 /* This is for the center picture on the index page
