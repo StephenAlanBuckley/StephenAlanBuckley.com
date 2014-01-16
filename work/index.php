@@ -4,7 +4,7 @@ require_once '../header.php';
 ?>
 
 <div class="row">
-  <a href="StephenBuckleyResume.htm">Resume</a>
+  <a href="resume.php">Resume</a>
 </div>
 
 <?php
