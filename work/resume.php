@@ -1,5 +1,6 @@
 <?php
 
+$css_paths "/css/work/resume.css";
 require_once '../header.php';
 ?>
 
