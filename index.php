@@ -5,7 +5,7 @@ require_once 'header.php';
 ?>
 
 <div class="row">
-  <img id="portrait" src="/images/head_icon.jpg" class="col-md-8 col-md-offset-3">
+  <img id="portrait" src="/images/head_icon.jpg" class="col-md-8 col-md-offset-4">
 </div>
 <div class="row panel">
   <a id="work" class="primary_link text-center col-md-2 col-md-offset-1" href="/work/">Work</a>
