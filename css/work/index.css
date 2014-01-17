@@ -1,0 +1,41 @@
+@font-face {
+  font-family: Medula_One;
+  src: url("http://stephenalanbuckley.com/fonts/MedulaOne-Regular.otf") format("opentype")
+}
+
+#wrap {
+  background-image: url('../../images/tuxedo_background.jpg');
+}
+
+body {
+  background-color: black;
+}
+
+header {
+  background-color: white;
+}
+
+h1, p {
+  color: white;
+  font-family: Medula_One;
+}
+
+#footer p {
+  color: black;
+}
+
+a {
+  color:grey;
+  font-family: Medula_One;
+}
+
+.nav-pills {
+  border: 1px solid;
+  border-color: white;
+  border-radius: 0px;
+}
+
+.work_box {
+  border-radius: 0px;
+  padding: 0px 0px;
+}
