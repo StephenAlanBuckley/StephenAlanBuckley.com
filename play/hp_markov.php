@@ -1,5 +1,5 @@
 <?php
-require 'header.php';
+require '../header.php';
 ?>
 <script type="text/javascript" src="js/hp_markov.js"></script>
 <div><h2>Harry Potter <a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">Markov Chains</a> </h2></div>
@@ -12,5 +12,5 @@ require 'header.php';
 <button type="button" id="madness">Enter the Madness</button>
 <div id="myDiv"></div>
 <?php
-require 'footer.php';
+require '../footer.php';
 ?>
