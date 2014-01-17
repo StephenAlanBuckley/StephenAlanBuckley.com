@@ -1,6 +1,6 @@
 <?php
 
-$css_paths = "/css/work/index.css";
+$css_paths = "/css/work/common.css";
 require_once '../header.php';
 ?>
 
@@ -18,6 +18,7 @@ require_once '../header.php';
 <div class="row">
   <div class="work_box nav nav-pills nav-stacked col-md-5">
     <li><a href="resume.php">>>  Resume</a></li>
+    <li><a href="https://github.com/StephenAlanBuckley" target="_blank">>>  GitHub</a></li>
   </div>
 </div>
 
