@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Medula-One;
+  src: url("http://stephenalanbuckley.com/fonts/MedulaOne-Regular.ttf")
+}
+
 #wrap {
   background-image: url('../../images/tuxedo_background.jpg');
 }
@@ -31,4 +36,23 @@ a {
 .work_box {
   border-radius: 0px;
   padding: 0px 0px;
+  margin: 30px 0px;
+  background-color: black;
+}
+
+.justified_text {
+  text-align: justify;
+}
+
+.medula_one {
+  font-family: Medula-One;
+  font-size: 250%;
+}
+
+h1.medula_one {
+  font-size: 350%;
+}
+
+#no_left_padding {
+  padding-left: 0px;
 }
