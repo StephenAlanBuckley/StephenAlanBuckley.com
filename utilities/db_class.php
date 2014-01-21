@@ -1,5 +1,6 @@
 <?php
 
+
 Class Database{
 	public $server_ip, $username, $password, $db_name;
 
@@ -19,8 +20,8 @@ Class Database{
 
 	private function result_set_to_array($result_set){
     if(is_object($result_set)){
-	    for ($new_array = array(); $tmp = $result_set->fetch_array(MYSQL_ASSOC);  ) $new_array[] = $tmp;
-  	  return $new_array;
+      for ($new_array = array(); $tmp = $result_set->fetch_array(MYSQL_ASSOC);  ) $new_array[] = $tmp;
+      return $new_array;
 		}
   }
 
@@ -33,10 +34,11 @@ Class Database{
 	}
 
 	public function make_sab_basics_database_connection(){
-    $this->server_ip = '205.178.146.105';
-    $this->username = 'sabuckley';
-    $this->password = 'SBuck1ey';
-    $this->db_name = 'sab_basics';
+    require "/home/stephena/db_access.inc.php";
+    $this->server_ip = 'localhost';
+    $this->username = 'stephena';
+    $this->password = $sab_basics_password;
+    $this->db_name = 'stephena_sab_basics';
     $this->make_connection();
 	}
 
