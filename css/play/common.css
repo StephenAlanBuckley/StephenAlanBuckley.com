@@ -1,0 +1,26 @@
+@font-face {
+  font-family: FreckleFace;
+  src: url("http://stephenalanbuckley.com/fonts/FreckleFace-Regular.ttf");
+}
+
+#wrap {
+  background-size: cover;
+  background-image: url('../../images/play_background.jpg');
+}
+
+h1, a {
+  color: #009933;
+}
+
+h2 {
+  color: #009933;
+}
+
+.play_font {
+  font-family: FreckleFace;
+  font-size: 250%;
+}
+
+h1.play_font {
+  font-size: 350%;
+}
