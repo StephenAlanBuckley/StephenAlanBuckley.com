@@ -138,5 +138,5 @@ function get_league_info($league_id) {
   }
 
   $db->end_connection();
-  return ("true", $league_info[0]);
+  return result_set("true", $league_info[0]);
 }
