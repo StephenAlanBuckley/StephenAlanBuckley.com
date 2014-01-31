@@ -22,3 +22,11 @@ header h2 {
 #logout_button, #username_button {
   display: none;
 }
+
+.float_right {
+  float: right;
+}
+
+.float_left {
+  float: left;
+}

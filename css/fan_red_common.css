@@ -7,7 +7,7 @@
   font-family: Fipps;
   text-align: center;
   font-size: 250%;
-  color: red;
+  color: #FF0000;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -15,6 +15,7 @@
 .fan_red_text {
  font-family: Fipps;
  font-size: 125%;
+ color: #333333;
  margin-top: 20px;
  margin-bottom: 20px;
 }
@@ -22,9 +23,32 @@
 .fan_red_button {
   font-family: Fipps;
   font-size: 150%;
-  background-color: red;
-  color: white;
+  background-color: #FF0000;
+  color: #333333;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
+.secondary_fan_red_button {
+  font-family: Fipps;
+  color: #0000FF;
+  background-color: #333333;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.secondary_fan_red_button:hover {
+  color: #FFFFFF;
+}
+
+.secondary_fan_red_button:active {
+  color: #0000FF;
+}
+
+.secondary_fan_red_button:visited {
+  color: #0000FF;
+}
+
+.blue_text {
+  color: #0000FF;
+}
