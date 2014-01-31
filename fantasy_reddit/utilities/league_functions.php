@@ -12,6 +12,10 @@ if (!empty($_GET['function'])) {
       $results = create_new_league($_GET['id'], $_GET['name'], $_GET['days']);
       print_r(json_encode($results));
       break;
+    case 'add_team_to_league':
+      print_r(json_encode($results)):
+      $results = add_team_to_league($_GET['league_id'], $_GET['user_id'], $_GET['invite_id'], $_GET['team_name'], $_GET['team_users']) {
+      breakl
     //put functions here when I have them
     //don't forget break; between cases!
   }
@@ -48,11 +52,6 @@ function create_new_league($organizer_id, $league_name, $days) {
 }
 
 function add_team_to_league($league_id, $team_user_id, $invite_id, $team_name, $team_users) {
-  //So, here are the steps:
-  //4) if it is, create a new team with this team_user_id, name and users and return true with the team's id
-  //5) Add the user and team id to the table of the league.
-  //I don't think that that's necessary- as long as each team keeps track of its league's id, then a simple query will get all of that info
-  // -something to think about
   $league_info_results = get_league_info($league_id);
   if ($league_info_results["Result"] !== "true") {
     return $league_info_results;

@@ -100,7 +100,7 @@ function evaluate_redditor($reddit_name, $ajax = false) {
   $evaluation = $total_score/$days_alive;
 
   if ($ajax) {
-    return result_set("true", $evaluation);
+    return result_set("true", number_format($evaluation, 3, '.',''));
   } else {
     return $evaluation; 
   }

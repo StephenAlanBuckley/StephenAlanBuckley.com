@@ -16,7 +16,7 @@ $('#create_the_league').on('click', function() {
     return;
   }
 
-  var user_info_url = "/utilities/session_functions.php";
+  var user_info_url = "http://www.stephenalanbuckley.com/utilities/session_functions.php";
   var user_id = -1;
   $.ajax({
     dataType: "json",
@@ -30,18 +30,19 @@ $('#create_the_league').on('click', function() {
     if(data !== null) {
      user_id = data.user_id;
     }
+    console.log(data);
   });
 
   if (user_id === -1) {
     set_status(user_id, "Something's gone wrong with your session! Try logging in again and then making a league. This is totally my bad!", "danger");
     return;
   }
-
- var league_creation_url = '/fantasy_reddit/utilities/league_functions.php';
+    
+ var league_creation_url = 'http://www.stephenalanbuckley.com/fantasy_reddit/utilities/league_functions.php?function=create_league&id=' + user_id + '&name=' + escape(name) + '&days=' + days;
 
  $.ajax({
    dataType: "json",
-   url: league_creation_url,
+   url: league_creation_url, 
    async: false,
    type: "GET",
    data: {
@@ -49,15 +50,14 @@ $('#create_the_league').on('click', function() {
      "id"       : user_id,
      "name"     : name,
      "days"     : days
-   }
+   }   
  }).done(function(data) {
-  if (data.Result === "true") {
-    set_status("Whoohoo!", "Your brand spanking new Fantasy Reddit League has been created! So make a team, invite some friends, and get going!", "success");
-  } else {
-    set_status("Bah!", "Something went wrong with your league being made. " + data.Message + ". <---- That's what went wrong!", "danger");
-  }
+   if (data.Result === "true") {
+     set_status("Whoohoo!", "Your brand spanking new Fantasy Reddit League has been created! So make a team, invite some friends, and get going!", "success");
+   } else {
+     set_status("Bah!", "Something went wrong with your league being made. " + data.Message + ". <---- That's what went wrong!", "danger");
+   }
  });
- console.log("AJAX ended.");
 });
 
 function set_status(header, body, panel_type) {

@@ -1,5 +1,6 @@
 <?php
 $page_title = "Fantasy Reddit Team Creation";
+$js_paths = "/js/fantasy_reddit/team_creation.js";
 $css_paths = "/css/fan_red_common.css";
 
 require_once "../header.php";
