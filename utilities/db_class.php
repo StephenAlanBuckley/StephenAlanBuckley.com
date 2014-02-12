@@ -41,6 +41,15 @@ Class Database{
     $this->db_name = 'stephena_sab_basics';
     $this->make_connection();
 	}
+  
+	public function make_informery_connection(){
+    require "/home/stephena/db_access.inc.php";
+    $this->server_ip = 'localhost';
+    $this->username = 'stephena';
+    $this->password = $sab_basics_password;
+    $this->db_name = 'stephena_informery';
+    $this->make_connection();
+	}
 
   public function end_connection() {
     $this->connection->close();

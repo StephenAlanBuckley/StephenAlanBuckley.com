@@ -13,6 +13,7 @@ if (!empty($_GET['function'])) {
 ?>
 
 <?php
+
 function get_user_info() {
   return $_SESSION['user_info'];
 }

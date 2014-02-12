@@ -2,22 +2,22 @@
   font-family: Fipps;
   src: url("http://stephenalanbuckley.com/fonts/Fipps-Regular.otf") format("opentype")
 }
+.fan_red_banner, .fan_red_text, .fan_red_button, .secondary_fan_red_button, {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .fan_red_banner {
   font-family: Fipps;
   text-align: center;
   font-size: 250%;
   color: #FF0000;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .fan_red_text {
  font-family: Fipps;
  font-size: 125%;
  color: #333333;
- margin-top: 20px;
- margin-bottom: 20px;
 }
 
 .fan_red_button {
@@ -25,16 +25,12 @@
   font-size: 150%;
   background-color: #FF0000;
   color: #333333;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .secondary_fan_red_button {
   font-family: Fipps;
   color: #0000FF;
   background-color: #333333;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .secondary_fan_red_button:hover {

@@ -46,7 +46,10 @@ require_once "../footer.php";
 function reddit_users_html() {
   $reddit_html =
   "<div class='row panel'>
-     <p class='col-md-10 col-md-offset-1 fan_red_banner'>Choose Your Redditors</p>
+     <p class='col-md-9 col-md-offset-1 fan_red_banner'>Choose Your Redditors</p>
+     <button class='col-sm-2 btn secondary_fan_red_button fan_red_text'>
+       <div id='help_button' class='well-sm'>Help!</div>
+     </button>
    </div>
    <div id='explanation' class='row'>
      <p class='col-md-12 fan_red_text'>Go to <a href='http://www.reddit.com'>reddit</a> and find some users you think will be fitting for your team, put their username into a box, and press evaluate!
@@ -54,11 +57,6 @@ function reddit_users_html() {
      <p class='col-md-12 fan_red_text'>The evaluation you'll see should give you an approximation of their average daily points.</p>
      <p class='col-md-12 fan_red_text'>Your teams' total points cannot exceed 2000. So choose wisely!</p>
      <p class='col-md-12 fan_red_text'>Once you're ready, click the Create My Team! button. Obviously.</p>
-   </div>
-   <div class='row'>
-     <button class='col-sm-2 btn secondary_fan_red_button fan_red_text'>
-       <div id='help_button' class='well-sm'>Help!</div>
-     </button>
    </div>
    <div class='row'>
      <p class='fan_red_text col-md-4 col-md-offset-1 text-center'>Redditor</p>
