@@ -1,6 +1,23 @@
-.panel {
+.triarchy {
   font-size: 250%;
   margin-top: 20px;
+}
+
+.p_link_description {
+  font-size: 20;
+}
+
+#work .p_link_description {
+  color: black;
+}
+
+#play .p_link_description {
+  color: orange;
+}
+
+#think .p_link_description {
+  color: #883300; //Chosen because it's the color on the Stanford Encyclopedia of Philosophy.
+  //I'm SO GOOD AT FRONTEND
 }
 
 /* This is for the center picture on the index page

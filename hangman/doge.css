@@ -1,0 +1,86 @@
+.insult {
+  display: none;
+  position: absolute;
+}
+
+#insult_1 {
+  top: 10%;
+  left: 2%;
+}
+
+#insult_2 {
+  top: 70%;
+  left: 25%;
+}
+
+#insult_3 {
+  top: 15%;
+  left: 26%;
+}
+
+#insult_4 {
+  top: 85%;
+  left: 10%;
+}
+
+#doge_avatar {
+  width: 50%;
+  display: inline;
+}
+
+#guessing_business {
+  display: inline;
+  vertical-align: 250;
+  width: 10%;
+  margin-left: 20%;
+}
+
+#guessing_business input, #guessing_business button {
+  vertical-align: inherit;
+}
+
+#hope_button {
+  height: 40px;
+  font-family: "Comic Sans MS";
+}
+
+#guess_letter {
+  width: 40px;
+  height: 60px;
+  font-family: "Comic Sans MS";
+  font-size: 200%;
+}
+
+#show_em_what_it_is {
+  display: inline;
+  vertical-align: 100;
+  margin-left: -25%;
+  font-family: "Comic Sans MS";
+  font-size: 250%;
+}
+
+.letter {
+  display: inline;
+  width: 10px;
+  margin: 5px 10px;
+}
+
+#success_string {
+  float: right;
+  vertical-align: 200;
+  margin-right: 25%;
+  margin-top: 150px;
+  display: inline;
+  width: 25%;
+  font-family: "Comic Sans MS";
+}
+
+#success_div {
+  float: right;
+  vertical-align: 200;
+  margin-right: 10px;
+  display: inline;
+  width: 25%;
+}
+
+

@@ -3,6 +3,13 @@ $css_paths = "/css/schedule.css";
 require_once 'header.php';
 require_once 'utilities/db_class.php';
 
+
+?>
+<div class="col-md-8 col-md-offset-2">
+  <p>Hey! Sorry, right now I just moved to NYC, so there's nothing here. But if you <a href="https://twitter.com/HaptyFriday" target="_blank">follow me on Twitter</a> you'll get some jokes out of it and you'll know when I start doing shows again! Soon!</p>
+</div>
+
+<?php
 $all_shows = get_shows_from_db();
 echo make_all_shows_html($all_shows);
 ?>

@@ -18,6 +18,9 @@ require_once '../header.php';
 <div class="row">
   <div class="play_font nav nav-pills nav-stacked col-md-5 col-md-offset-7">
     <li><a href="../schedule.php">Comedy Schedule</a></li>
+    <li><a href="https://twitter.com/HaptyFriday">Follow My Silly Tweets</a></li>
+    <li><a href="http://instagram.com/HaptyFriday">An Instagram of Me With Strangers</a></li>
+    <li><a href="http://www.customink.com/accounts/8727628-1e38f">T-Shirt Designs!</a></li>
     <li><a href="hp_markov.php">Harry Potter Markov Chains</a></li>
   </div>
 </div>

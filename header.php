@@ -41,12 +41,12 @@ if (!empty($css_paths)) {
     <div class="container">
       <h1><a href="/">Stephen Alan Buckley</a></h1>
       <h2><?=crazy_subtitle()?></h2>
-    </div>
-    <div class="account settings" id="account_group">
-      <button class="btn btn-primary" id="login_modal_button" data-toggle="modal" data-target="#login_modal">login</button>
-      <button class="btn btn-primary" id="register_modal_button" data-toggle="modal" data-target="#register_modal">register</button>
-      <button class="btn btn-primary" id="username_button" data-toggle="modal" hidden="true">Dummy</button>
-      <button class="btn btn-primary" id="logout_button" data-toggle="modal" hidden="true">Log Out</button>
+      <div class="account settings" id="account_group">
+        <button class="btn btn-primary" id="login_modal_button" data-toggle="modal" data-target="#login_modal">login</button>
+        <button class="btn btn-primary" id="register_modal_button" data-toggle="modal" data-target="#register_modal">register</button>
+        <button class="btn btn-primary" id="username_button" data-toggle="modal" hidden="true">Dummy</button>
+        <button class="btn btn-primary" id="logout_button" data-toggle="modal" hidden="true">Log Out</button>
+      </div>
     </div>
   </header>
 <div id="wrap" class="container">

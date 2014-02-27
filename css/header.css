@@ -1,16 +1,17 @@
 header {
-  height: 150px;
+  height: 100px;
 }
 
 header h1 {
-  margin: 15px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
   font-size: 250%;
-  text-overflow: SAB;
+  text-overflow: "SAB";
 }
 
 header h2 {
   font-size: 125%;
   font-variant: Palatino Linotype;
+  display: inline;
 }
 
 .center {

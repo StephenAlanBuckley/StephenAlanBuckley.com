@@ -16,7 +16,7 @@ echo $js_html;
 <!--We close the contents box and container clearfix(?)-->
 </div> 
 <div id="footer" class="container">
-		<p>Copyright 2013 Stephen Alan Buckley. All rights reserved, I think. Stephen Buckley, Allston, MA  02134</p>
+		<p>Copyright 2014 Stephen Alan Buckley. All rights reserved, I think. Stephen Buckley, Astoria, NY 11105</p>
 </div>
 </body>
 </html>
