@@ -1,4 +1,5 @@
 <?php
+$css_paths = "/css/think/common.css";
 require_once '../header.php';
 ?>
 

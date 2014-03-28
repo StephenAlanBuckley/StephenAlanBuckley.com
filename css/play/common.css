@@ -1,26 +1,27 @@
 @font-face {
-  font-family: FreckleFace;
-  src: url("http://stephenalanbuckley.com/fonts/FreckleFace-Regular.ttf");
+  font-family: ZincBoom;
+  src: url("http://stephenalanbuckley.com/fonts/ZincBoom-Regular.ttf");
 }
 
-#wrap {
-  background-size: cover;
-  background-image: url('../../images/play_background.jpg');
+@font-face {
+  font-family: AgentRed;
+  src: url("http://stephenalanbuckley.com/fonts/AgentRed-Regular.ttf");
 }
 
-h1, a {
+body h1, a {
   color: #009933;
 }
 
-h2 {
+body h2 {
   color: #009933;
 }
 
 .play_font {
-  font-family: FreckleFace;
-  font-size: 250%;
+  font-family: AgentRed;
+  font-size: 150%;
 }
 
 h1.play_font {
-  font-size: 350%;
+  font-family: ZincBoom;
+  font-size: 550%;
 }

@@ -1,0 +1,36 @@
+.seesaw_wrapper 
+{
+ margin: 10% 0% 5% 0%;
+}
+             
+.seesaw_wrapper .bar 
+{
+            position:relative;
+            width:300px;
+            height:10px;
+            background:#1e5c76;
+ }
+        
+.seesaw_wrapper .bar .box 
+        {
+            position:absolute;
+            width:16px;
+            height:16px;
+            background:#50b3dd;
+}
+
+#left_box {
+            left:0px;
+            top:-17px;
+}
+
+#right_box {
+    left: 284px;
+    top: -17px;
+}
+
+#play_page_title {
+  position: absolute;
+  top: -90;
+  left: 20%
+}
