@@ -17,7 +17,7 @@
 * 1) Ensure you have tmhOAuth checked out or installed via composer.
 * 2) If you don't have one already, create a Twitter application on
 *      https://dev.twitter.com/apps
-* 3) From the application details page copy the consumer key and consumer
+* 3) From the application details page copy the twitter_oauth_connection.ey and consumer
 *      secret into the place in this code marked with (YOUR_CONSUMER_KEY
 *      and YOUR_CONSUMER_SECRET)
 * 4) From the application details page copy the access token and access token

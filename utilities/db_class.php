@@ -27,28 +27,37 @@ Class Database{
 
 	public function make_connection(){
 		$this->connection = new mysqli(
-      $this->server_ip, 
-      $this->username, 
-      $this->password, 
+      $this->server_ip,
+      $this->username,
+      $this->password,
       $this->db_name);
 	}
 
 	public function make_sab_basics_database_connection(){
-    require "/home/stephena/db_access.inc.php";
-    $this->server_ip = 'localhost';
-    $this->username = 'stephena';
-    $this->password = $sab_basics_password;
-    $this->db_name = 'stephena_sab_basics';
-    $this->make_connection();
+      require "/home/stephena/db_access.inc.php";
+      $this->server_ip = 'localhost';
+      $this->username = 'stephena';
+      $this->password = $sab_basics_password;
+      $this->db_name = 'stephena_sab_basics';
+      $this->make_connection();
 	}
-  
+
 	public function make_informery_connection(){
-    require "/home/stephena/db_access.inc.php";
-    $this->server_ip = 'localhost';
-    $this->username = 'stephena';
-    $this->password = $sab_basics_password;
-    $this->db_name = 'stephena_informery';
-    $this->make_connection();
+      require "/home/stephena/db_access.inc.php";
+      $this->server_ip = 'localhost';
+      $this->username = 'stephena';
+      $this->password = $sab_basics_password;
+      $this->db_name = 'stephena_informery';
+      $this->make_connection();
+	}
+
+	public function make_sab_basics_database_connection(){
+      require "/home/stephena/db_access.inc.php";
+      $this->server_ip = 'localhost';
+      $this->username = 'stephena';
+      $this->password = $sab_basics_password;
+      $this->db_name = 'stephena_improv_extension';
+      $this->make_connection();
 	}
 
   public function end_connection() {
